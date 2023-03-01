@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic');
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic');
+
+
+.Nunito {
+  font-family: 'Nunito';
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body {
+  /* font-family: 'Nunito'; */
+  font-family: 'Rubik';
+}
+
+.nav {
+  font-family: 'Nunito';
+}
+
+a,
+button {
+  outline: none !important;
+}

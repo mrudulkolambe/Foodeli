@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic');
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic');
+@import url('https://fonts.googleapis.com/css?family=Lobster:regular');
+
+
+/* 
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-Thin.ttf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-ExtraLight.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-SemiBold.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-Bold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-ExtraBold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-Black.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: local("Lobster"),  url("./fonts/Lobster/Lobster-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"),  url("./fonts/Rubik/Rubik-Light.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"),  url("./fonts/Rubik/Rubik-Medium.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"),  url("./fonts/Rubik/Rubik-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"),  url("./fonts/Rubik/Rubik-SemiBold.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"),  url("./fonts/Rubik/Rubik-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"),  url("./fonts/Rubik/Rubik-ExtraBold.ttf");
+  font-weight: 800;
+} */
+
+
+:root {
+  --navbar-height: 98px;
+}
+
+*{
+  outline: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body {
+  font-family: 'Poppins';
+}
+
+.Rubik {
+  font-family: 'Rubik';
+}
+
+.Lobster {
+  font-family: 'Lobster';
+}
+
+.screen-size {
+  height: calc(100vh - var(--navbar-height));
+}
+
+.layer {
+  overflow: hidden;
+}
+
+.layer::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8));
+}
+
+main {
+  background: url('http://localhost:3000/assets/mainbg.png');
+  background-position: top;
+  background-repeat: repeat;
+}
+
+.active {
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.marked::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 2px;
+  min-width: 10px;
+  min-height: 2px;
+  border-radius: 2px;
+  background-color: #EB0029;
+}
