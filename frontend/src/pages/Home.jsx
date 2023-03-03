@@ -69,48 +69,48 @@ const Home = () => {
 						<div className='w-1/4 grid grid-rows-4'>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(0) }}>
 								<div className='w-3/4 h-full py-1'>
-									<div className={foodState == 0 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
+									<div className={foodState === 0 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
 										<img className='bg-white p-3 h-12 rounded-full ' src="/assets/burger.png" alt="" />
-										<p className={foodState == 0 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Burger</p>
+										<p className={foodState === 0 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Burger</p>
 									</div>
 								</div>
 								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 0 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'rounded-t-full w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(1) }}>
 								<div className='w-3/4 h-full py-1'>
-									<div className={foodState == 1 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
+									<div className={foodState === 1 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
 										<img className='bg-white p-3 h-12 rounded-full ' src="/assets/burger.png" alt="" />
-										<p className={foodState == 1 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Pizza</p>
+										<p className={foodState === 1 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Pizza</p>
 									</div>
 								</div>
 								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 1 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(2) }}>
 								<div className='w-3/4 h-full py-1'>
-									<div className={foodState == 2 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
+									<div className={foodState === 2 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
 										<img className='bg-white p-3 h-12 rounded-full ' src="/assets/burger.png" alt="" />
-										<p className={foodState == 2 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Cupcake</p>
+										<p className={foodState === 2 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Cupcake</p>
 									</div>
 								</div>
 								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 2 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : ' w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(3) }}>
 								<div className='w-3/4 h-full py-1'>
-									<div className={foodState == 3 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
+									<div className={foodState === 3 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
 										<img className='bg-white p-3 h-12 rounded-full ' src="/assets/burger.png" alt="" />
-										<p className={foodState == 3 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Icecream</p>
+										<p className={foodState === 3 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Icecream</p>
 									</div>
 								</div>
 								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 3 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : ' w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(4) }}>
 								<div className='w-3/4 h-full py-1'>
-									<div className={foodState == 4 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
+									<div className={foodState === 4 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
 										<img className='bg-white p-3 h-12 rounded-full ' src="/assets/burger.png" alt="" />
-										<p className={foodState == 4 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Ramen</p>
+										<p className={foodState === 4 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Ramen</p>
 									</div>
 								</div>
-								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 4 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : ' w-1.5 flex bg-gray-300 duration-300'}></span></div>
+								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 4 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'rounded-b-full  w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 						</div>
 						<div className='ml-20 w-3/4 flex overflow-auto gap-6'>

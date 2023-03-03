@@ -19,6 +19,15 @@ const USER_SCHEMA = new Schema({
 	username: {
 		type: String,
 		unique: true
+	},
+	role: {
+		type: String,
+		required: true
+	},
+	verified: {
+		type: Boolean,
+		required: true,
+		default: false
 	}
 });
 
