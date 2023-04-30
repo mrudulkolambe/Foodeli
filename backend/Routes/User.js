@@ -3,14 +3,14 @@ const router = express.Router();
 const User = require('../Models/UserModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const { handleAuth } = require('../Middleware/AuthMiddleware')
 
 router.post('/signup', async (req, res) => {
 	const hashedPassword = await bcrypt.hash(req.body.password, 10);
 	const user = await new User({ ...req.body, password: hashedPassword })
 	try {
 		const newUser = await user.save();
-		const accessToken = jwt.sign({ id: newUser._id, username: newUser.username, email: newUser.email, role: "user" }, process.env.JWT_SECRET)
+		const accessToken = jwt.sign({ id: newUser._id, username: newUser.username, email: newUser.email, role: "user" }, process.env.JWT_SECRET, {expiresIn: '2d'} )
 		res.send({ accessToken, user: newUser })
 	} catch (err) {
 		res.status(400).json({ message: err.message })
@@ -20,19 +20,23 @@ router.post('/signup', async (req, res) => {
 router.post('/signin', async (req, res) => {
 	const user = await User.findOne({ username: req.body.username })
 	if (!user) {
-		return res.status(404).send("Cannot find user!");
+		return res.status(404).send({ message: "Cannot find user!" });
 	} else {
 		try {
 			if (await bcrypt.compare(req.body.password, user.password)) {
-				const accessToken = jwt.sign({ id: user._id, username: user.username, email: user.email }, process.env.JWT_SECRET)
+				const accessToken = jwt.sign({ id: user._id, username: user.username, email: user.email }, process.env.JWT_SECRET, {expiresIn: '2d'})
 				res.send({ accessToken })
 			} else {
-				res.send("Not authorized!")
+				res.status(401).send({message: "The username and password combination doesn't seems to be right!"})
 			}
 		} catch (error) {
 			res.send(error)
 		}
 	}
+})
+
+router.get('/', handleAuth, (req, res) => {
+
 })
 
 router.patch('/reset-password', async (req, res) => {

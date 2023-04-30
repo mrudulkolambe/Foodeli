@@ -4,9 +4,11 @@ import ProductCard from '../components/ProductCard';
 import Topbar from '../components/Topbar'
 import { serve } from '../data/home';
 import 'swiper/css';
+import { UseProductContext } from '../context/Home';
 
 const Home = () => {
-	const [foodState, setFoodState] = useState(0)
+	const [foodState, setFoodState] = useState("burger")
+	const { products, productCategory} = UseProductContext()
 	return (
 		<>
 			<main>
@@ -29,7 +31,7 @@ const Home = () => {
 								<div>
 									<h3 className='font-bold text-lg'>Our Happy Customer</h3>
 									<div className='flex gap-2 items-center font-medium'>
-										<svg aria-hidden="true" class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+										<svg aria-hidden="true" className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
 										<p>4.8</p>
 										<p className='text-gray-500'>(12,5k Review)</p>
 									</div>
@@ -66,24 +68,24 @@ const Home = () => {
 					<h3 className='tracking-wider text-xl text-accent font-semibold'>OUR MENU</h3>
 					<h1 className='leading-[3.5rem] capitalize text-5xl font-bold text-blackAccent mt-5'>Menu that always <br />Makes you fall in love </h1>
 					<div className='flex mt-5 items-center'>
-						<div className='w-1/4 grid grid-rows-4'>
-							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(0) }}>
+						<div className='w-1/5 grid grid-rows-4'>
+							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState('burger') }}>
 								<div className='w-3/4 h-full py-1'>
-									<div className={foodState === 0 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
+									<div className={foodState === "burger" ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
 										<img className='bg-white p-3 h-12 rounded-full ' src="/assets/burger.png" alt="" />
-										<p className={foodState === 0 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Burger</p>
+										<p className={foodState === "burger" ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Burger</p>
 									</div>
 								</div>
-								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 0 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'rounded-t-full w-1.5 flex bg-gray-300 duration-300'}></span></div>
+								<div className='w-1/5 h-full flex justify-end'><span className={foodState == "burger" ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'rounded-t-full w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
-							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(1) }}>
+							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState("pizza") }}>
 								<div className='w-3/4 h-full py-1'>
-									<div className={foodState === 1 ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
+									<div className={foodState === "pizza" ? 'duration-300 bg-accent p-3 rounded-full flex items-center gap-5' : 'bg-white p-3 rounded-full flex items-center gap-5 duration-300'}>
 										<img className='bg-white p-3 h-12 rounded-full ' src="/assets/burger.png" alt="" />
-										<p className={foodState === 1 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Pizza</p>
+										<p className={foodState === "pizza" ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Pizza</p>
 									</div>
 								</div>
-								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 1 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'w-1.5 flex bg-gray-300 duration-300'}></span></div>
+								<div className='w-1/5 h-full flex justify-end'><span className={foodState == "pizza" ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(2) }}>
 								<div className='w-3/4 h-full py-1'>
@@ -92,7 +94,7 @@ const Home = () => {
 										<p className={foodState === 2 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Cupcake</p>
 									</div>
 								</div>
-								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 2 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : ' w-1.5 flex bg-gray-300 duration-300'}></span></div>
+								<div className='w-1/5 h-full flex justify-end'><span className={foodState == 2 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : ' w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(3) }}>
 								<div className='w-3/4 h-full py-1'>
@@ -101,7 +103,7 @@ const Home = () => {
 										<p className={foodState === 3 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Icecream</p>
 									</div>
 								</div>
-								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 3 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : ' w-1.5 flex bg-gray-300 duration-300'}></span></div>
+								<div className='w-1/5 h-full flex justify-end'><span className={foodState == 3 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : ' w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 							<div className='w-full flex cursor-pointer select-none' onClick={() => { setFoodState(4) }}>
 								<div className='w-3/4 h-full py-1'>
@@ -110,18 +112,19 @@ const Home = () => {
 										<p className={foodState === 4 ? 'duration-300 text-lg text-white' : 'duration-300  text-lg text-blackAccent'}>Ramen</p>
 									</div>
 								</div>
-								<div className='w-1/4 h-full flex justify-end'><span className={foodState == 4 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'rounded-b-full  w-1.5 flex bg-gray-300 duration-300'}></span></div>
+								<div className='w-1/5 h-full flex justify-end'><span className={foodState == 4 ? 'duration-300 rounded-full w-1.5 flex bg-accent' : 'rounded-b-full  w-1.5 flex bg-gray-300 duration-300'}></span></div>
 							</div>
 						</div>
-						<div className='ml-20 w-3/4 flex overflow-auto gap-6'>
+						<div className='pl-10 w-4/5 flex'>
 							<Swiper
 								slidesPerView={3}
-								onSlideChange={() => console.log('slide change')}
-								onSwiper={(swiper) => console.log(swiper)}
+								spaceBetween={10}
 							>
 								{
-									serve[foodState]?.map((item, index) => {
-										return <SwiperSlide key={"item" + index} ><ProductCard data={item} /></SwiperSlide>
+									productCategory.filter((product) => {
+										return product.category === foodState
+									})?.map((item, index) => {
+										return <SwiperSlide key={"item" + index} ><ProductCard data={item} isProductPage={true}/></SwiperSlide>
 									})
 								}
 							</Swiper>

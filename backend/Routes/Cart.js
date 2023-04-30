@@ -1,24 +1,48 @@
 const express = require("express");
 const router = express.Router();
 const { handleAuth } = require("../Middleware/AuthMiddleware");
-const Cart = require("../Models/CategoryModel");
+const Cart = require("../Models/CartModel");
+const Category = require('../Models/CategoryModel')
 
-router.post('/', handleAuth, async (req, res) => {
-	const cart = new Cart(req.body)
+router.post('/update-cart', handleAuth, async (req, res) => {
 	try {
-		const newCart = await cart.save();
-		res.json(newCart)
-	} catch (err) {
-		res.status(400).json(err)
+		const item = await Cart.findOne({ product: req.body.product, user: req.user.id })
+		if (item) {
+			Cart.findByIdAndUpdate(item?._id, req.body, {
+				returnOriginal: false
+			})
+				.then((response) => {
+					res.json({ cart: response.data, error: false, message: "Cart Updated Successfully!" })
+				})
+				.catch((err) => {
+					res.json({ cart: undefined, error: true, message: err.message })
+				})
+		} else {
+			if (req.user) {
+				const cart = new Cart({ ...req.body, user: req.user.id })
+				const newCart = await cart.save();
+				res.json({ cart: newCart, error: false, message: "Cart Updated Successfully!" })
+			}
+		}
+	} catch (error) {
+		res.json({ cart: undefined, error: true, message: error.message })
 	}
 })
 
 router.patch('/:id', async (req, res) => {
 	const cart = await Cart.findById({ _id: req.params.id })
 	if (!cart) {
-		return res.status(404).json({ message: "Cannot find cart item!" });
+		return res.json({ cart: undefined, error: true, message: "Cannot find cart item!" })
 	} else {
-		res.json(categories)
+		return res.json({ cart: cart, error: false, message: "Cart Updated Successfully!" })
+	}
+})
+router.get('/', async (req, res) => {
+	const cart = await Cart.find()
+	if (!cart) {
+		return res.status(404).json({cart: cart, error: true, message: "Cannot find cart item!" });
+	} else {
+		return res.json({ cart: cart, error: false, message: "Success" })
 	}
 })
 

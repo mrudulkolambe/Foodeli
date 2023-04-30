@@ -8,7 +8,7 @@ const Select = ({ width, id, label, value, placeholder, onChange, disabled, read
 			<div className={'flex flex-col Nunito ' + width}>
 				{label && <label htmlFor={id} className="text-sm font-bold mb-1 cursor-pointer">{label}: </label>}
 				<select id={id} name={id} value={value} placeholder={placeholder} onChange={(e) => { select(e, setError, onChange) }} readOnly={readOnly} disabled={disabled} className={"placeholder:text-sm outline-none border-2 rounded-lg px-3 py-2 focus:border-accent duration-200 read-only:cursor-pointer disabled:cursor-not-allowed " + className} >
-					<option value={""}>{"Select Category"}</option>
+					<option value={""}>{"Select"}</option>
 					{
 						options.map((option, index) => {
 							return <option key={"option" + index} value={option.value}>{option.label}</option>

@@ -11,27 +11,30 @@ const PRODUCT_SCHEMA = new Schema({
 		required: true,
 		unique: true
 	},
-	description: {
-		type: String,
-		required: true
-	},
 	thumbnail: {
 		type: String,
 		trim: true,
 		required: true
 	},
-	category: {
-		type: mongoose.SchemaTypes.ObjectId,
-		required: true,
-		ref: "CATEGORY"
-	},
-	parentCategory: {
+	productID: {
 		type: mongoose.SchemaTypes.ObjectId,
 		required: true,
 		ref: "PARENT-PRODUCT"
 	},
+	displayDetails: {
+		type: String,
+		required: true
+	},
+	price: {
+		type: Number,
+		required: true
+	},
 	available: {
 		type: Boolean,
+		required: true
+	},
+	discountAmount: {
+		type: Number,
 		required: true
 	}
 });

@@ -17,10 +17,19 @@ const PARENT_PRODUCT_SCHEMA = new Schema({
 		required: true
 	},
 	category: {
-		// type: mongoose.SchemaTypes.ObjectId,
 		type: String,
 		required: true,
-		ref: "CATEGORY"
+	},
+	description: {
+		type: String
+	},
+	minPrice: {
+		type: Number,
+		required: true
+	},
+	maxPrice: {
+		type: Number,
+		required: true
 	}
 });
 

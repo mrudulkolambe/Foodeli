@@ -10,6 +10,7 @@ app.use(cors({
 }))
 const port = 1000;
 
+mongoose.set('strictQuery', true);
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
@@ -17,6 +18,9 @@ app.use(bodyParser.json())
 
 const userRouter = require('./Routes/User');
 app.use("/user", userRouter)
+
+const cartRouter = require('./Routes/Cart');
+app.use("/cart", cartRouter)
 
 const CategoryRouter = require('./Routes/Category');
 app.use("/category", CategoryRouter)

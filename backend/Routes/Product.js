@@ -13,7 +13,8 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-	const products = await ProductModel.find().populate("category")
+	const products = await ProductModel.find().populate("productID")
+	// const products = await ProductModel.find().populate("category")
 	if (!products) {
 		return res.status(404).json({ message: "Cannot find Products!" });
 	} else {
@@ -23,6 +24,14 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
 	const product = await ProductModel.findById(req.params.id)
+	if (!product) {
+		return res.status(404).json({ message: "Cannot find Product!" });
+	} else {
+		res.json(product)
+	}
+})
+router.get('/parent/:id', async (req, res) => {
+	const product = await ProductModel.find({productID: req.params.id})
 	if (!product) {
 		return res.status(404).json({ message: "Cannot find Product!" });
 	} else {

@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Input from '../components/Input'
 import PrimaryButton from "../components/PrimaryButton";
+import { UseAuthContext } from "../context/Auth"
 
-const Signin = () => {
+const Signin = ({ props }) => {
 	const navigate = useNavigate();
-
+	const { user, setUser } = UseAuthContext()
 	const initialFormState = {
 		username: "",
 		password: ""
@@ -27,8 +28,15 @@ const Signin = () => {
 			data: formState
 		})
 			.then((response) => {
-				if (response.status === 200)
+				if (response.status === 200) {
 					navigate('/')
+					setUser(response.data)
+					props.setAlert("Logged In Successfully!")
+				}
+			})
+			.catch((err) => {
+				console.log(err)
+				props.setAlert(err.response.data.message)
 			})
 	}
 	return (

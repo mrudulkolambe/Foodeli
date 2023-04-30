@@ -7,10 +7,25 @@ const CART_SCHEMA = new Schema({
 		ref: "PRODUCT",
 		required: true
 	},
+	parent: {
+		type: mongoose.SchemaTypes.ObjectId,
+		ref: "PARENT-PRODUCT",
+		required: true
+	},
 	quantity: {
 		type: Number,
 		max: 10,
 		min: 0,
+		required: true
+	},
+	date: {
+		type: Date,
+		required: true,
+		default: Date.now()	
+	},
+	user: {
+		type: mongoose.SchemaTypes.ObjectId,
+		ref: "USER",
 		required: true
 	}
 });

@@ -3,6 +3,7 @@ import { FiSearch } from 'react-icons/fi'
 import { HiOutlineShoppingBag } from 'react-icons/hi'
 import { BiLogIn } from 'react-icons/bi'
 import { Link, useLocation } from 'react-router-dom'
+import { UseAuthContext } from '../context/Auth'
 
 const Topbar = () => {
 	const routes = [
@@ -24,9 +25,11 @@ const Topbar = () => {
 		},
 	]
 	const location = useLocation();
+
+	const { user } = UseAuthContext()
 	return (
 		<>
-			<nav className='flex justify-between items-center py-7 px-28 shadow-lg'>
+			<nav className='relative z-0 flex justify-between items-center h-[100px] px-28 shadow-lg'>
 				<div>
 					<Link to={"/"} className='text-2xl font-bold'>Foodeli</Link>
 				</div>
@@ -48,7 +51,7 @@ const Topbar = () => {
 				<div className='flex items-center gap-8'>
 					<FiSearch className='text-[22px]' />
 					<HiOutlineShoppingBag className='text-[22px]' />
-					<Link to={"/login"} className='flex items-center text-white px-8 py-2 rounded-full bg-accent gap-2 outline-none'><BiLogIn className='text-lg' /><p className='mb-0.5'>Login</p></Link>
+					{!user ? <Link to={"/login"} className='h-[40px] text-sm flex items-center text-white px-8 py-2 rounded-full bg-accent gap-2 outline-none'><BiLogIn className='text-lg' />Login</Link> : <button className='flex items-center text-white px-8 py-2 rounded-full bg-accent gap-2 outline-none text-sm h-[40px]'><BiLogIn className='text-lg' />Logout</button>}
 				</div>
 			</nav>
 		</>

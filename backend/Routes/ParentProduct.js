@@ -30,6 +30,15 @@ router.get('/:id', async (req, res) => {
 	}
 })
 
+router.get('/slug/:slug', async (req, res) => {
+	const product = await ParentProduct.findOne({slug: req.params.slug})
+	if (!product) {
+		return res.status(404).json({ message: "Cannot find Parent Product!" });
+	} else {
+		res.json(product)
+	}
+})
+
 router.patch('/:id', async (req, res) => {
 	try {
 		const ParentProductUpdate = await ParentProduct.findByIdAndUpdate(req.params.id, req.body, {
